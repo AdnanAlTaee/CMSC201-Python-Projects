@@ -1,1 +1,85 @@
+Battleship, according to wikipedia, dates back to approximately 1890-1910 and may have been played during World War I.  
+
+The general premise is that you have five ships, a carrier, battleship, cruiser, submarine, and destroyer. The only real difference between the ships is their length.
+Ship Name
+  Carrier: length 5
+  Battleship: length 4
+  Cruiser: length 3
+  Submarine: length 3
+  Destroyer: length 2
+  
+  The grid on which we'll place our ships is going to be 10x10.  
+  Each player has two grids available to them.
+  The first is a grid where they must place their ships.  
+  The second is where they register hits and misses for the other player's ship grid, which they cannot see.
+
+The game has two phases:
+
+  Ship placement - You need to find positions for your ships on your board.  They cannot overlap with other ship placements. 
+  
+  The game phase - Two players alternate by choosing where to shoot on the (x, y) grid.  
+  If the shot hits the other player's ship, they report that it is a hit, otherwise they say 'miss.'  
+  If a ship has filled up on hits, then the ship is removed, and it is "sunk" which is also told to the player.  
+  
+  Once one of the fleets is entirely sunk, then that player loses the game, and the player who sank the opposing fleet wins.  
+
+
+Implementation Details
+You are required  to implement two classes, BattleshipGame in a file battleship.py and a Board class in board.py.  
+You are permitted to create other classes, for instance a Ship class, Shot class, if they are useful to you.  
+
+The first process you will have to do is decide how to store the ships, either as their own classes, a dictionary, a list, etc.  
+Then you'll have to decide how to place the ships on the board.  
+
+You should have the user enter a position in x and y, and then whether the ship should go down or right from that starting position.  
+
+After both players place their ships, then you should determine how you're going to handle each turn.  
+
+After this you'll need to take in a coordinate, in x and y again to determine where a shot will land on the opponent's grid.  
+If a shot hits, your game should announce a hit on the ship that it hit.
+If a shot misses, your game should announce a miss.
+If a hit or miss is on a space which has been shot before, tell the user to try again.  
+If shot coordinates are out of range, tell them to try again. 
+
+
+Documentation 
+Documentation for: class BattleshipGame
+
+For this class you are required to have the following functions (but may add helper functions if needed):
+run_game(self)
+Here this function should take only the "self" parameter and from here you should treat this as your main function for running the game.  
+
+You should ask both players to place their ships, and then run the game, asking for shots until one fleet is defeated, at which point the game should end.  
+
+__init__(self, size=10)
+You should have  a constructor, where you can pass the size of the boards as the parameter.  I have put a default parameter for size=10 and you are permitted to do the same.  You can declare more variables here, and call any helper functions you want.  
+
+place_ships(self, player_board)
+This function should take a player_board, though if you don't need to, or you need more parameters that's acceptable as well.  When this function is at an end, the player_board should have all of the required ships placed.  
+
+display_boards(self, turn)
+This function should be a display function, and should display the boards.  
+For the current turn, the player should be able to see their own board with their own ships with hits and misses from the opposing fleet marked.  
+The second board should be marked only with hits and misses from the player's shots, and the opposing fleet should be invisible otherwise.  
+
+Documentation for: class Board:
+The following functions are suggested for the board class.  You can change the functions but you should have at least four functions inside of this class.  
+__init__(self, size)
+You should have a constructor.  Make sure you declare anything you need in terms of member variables in the constructor.  
+
+register_shot(self, x, y)
+This is the function that I used to check if there is a ship at that position, if it is a hit or miss, or if the position has already been hit.  If the position has already been hit/missed, the player should fire again.  
+
+get_board(self, active_board)
+This function was used to return the output for one of the grids, depending on whether the board was "active" meaning it was the current player's board, or it was the target board.  
+
+place_ship(self, ship, start_pos, end_pos)
+This is a function where one places the ship at the start position to the end position.  Remember that ships can only be placed vertically or horizontally, not diagonally.  If a ship is found to overlap with other ships or leaves the board, you must request another position.  
+
+
+Documentation for: main
+For the final version of your project, you should have these two lines of code as your only global code or something similar to it (except perhaps for constants and the class definitions).  
+
+if __name__ == '__main__':
+   BattleshipGame().run_game()
 
