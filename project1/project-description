@@ -1,0 +1,46 @@
+Project General Description:
+
+For our first project, we're going to be implementing the game Mancala.  Mancala has been discovered in the excavated ruins of a Roman bathhouse built in the 2nd or 3rd century AD.  
+
+In the 21st century, however, we have Python so we'll write a little version of the game ourselves.  
+
+The game is played with 'stones' which can be glass bubbles or stones, and there are generally two rows of 6 circular "cups" or pits, and then there's a double length pit on both sides, which we will also call a "mancala."  
+
+
+Rules of the Game:
+ 
+The board is formed by the two long pits or cups, and 12 cups divided into two rows, like in the picture.  
+
+To set up the game, place four stones in each of the 12 regular cups.
+
+Players alternate by taking turns.
+
+A turn consists of selecting a non-empty non-mancala cup and taking all of the stones from it, and then starting in the next cup, place a stone, and then advance to the next cup and place another stone, repeating this until all of the stones have been moved.
+  The direction of play will be clockwise.
+  Mancalas count as a put so you must place a stone in there as you pass that space.  
+  If the last stone is placed into a mancala, then that player gets another turn.  
+  A player cannot select a mancala to move stones out.  
+
+The game ends when one of the rows of regular cups is empty, so when either the "top" row or the "bottom" row is empty, the game is over.  
+The winner when the game ends is the player with the most stones in their mancala.  
+The board is numbered in the following order.  Cups 0 and 7 are mancalas whereas the rest are "regular."  
+Player 1's mancala is at position 7, and player 2's mancala is at position 0.  
+
+
+Implementation Details
+
+This is a specification for how the project should be implemented.  
+
+Get the names of players.  
+Begin the cycle of turns by alternating back and forth from player 1 to player 2 and back until the game is over.  
+When a player takes a turn, move the stones for them, starting in the next cup and placing a stone in each cup until the stones run out.  
+If a user enters an invalid cup number, make them try again.  
+If a turn ends in a mancala (the last stone is placed there), then that player gets a second turn.  
+When one of the two rows (positions 1 to 6 or positions 8 to 13) are empty, then the game ends.  
+Tell the players who has won based on the number of stones in each of the mancalas.  
+After each move, reprint the board and ask for the next user input.  
+
+notes:
+
+draw_board() functionw as provided by professor with minimal documentation
+
