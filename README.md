@@ -1,2 +1,2 @@
 # CMSC201-Python-Projects
-my projects from CMSC201 class at UMBC
+my projects from the CMSC201 class at UMBC
